@@ -12,11 +12,20 @@ struct PersistenceController {
 
     static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
-        let viewContext = result.container.viewContext
-        for _ in 0..<10 {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
-        }
+        var viewContext = result.container.viewContext
+        
+        var newItem = Song(context: viewContext)
+        newItem.date_added = Date()
+        newItem.title = "phunk 5"
+        newItem.playcount = 10
+        newItem.duration = "3:14"
+        
+        var newSong = Song(context: viewContext)
+        newSong.date_added = Date()
+        newSong.title = "phunk 2"
+        newSong.playcount = 0
+        newSong.duration = "3:14"
+        
         do {
             try viewContext.save()
         } catch {

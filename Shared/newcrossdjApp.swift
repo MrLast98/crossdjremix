@@ -6,11 +6,11 @@
 //
 
 import SwiftUI
+import CoreData
 
 @main
 struct newcrossdjApp: App {
     let persistenceController = PersistenceController.shared
-
     var body: some Scene {
         WindowGroup {
             ContentView()
@@ -18,3 +18,4 @@ struct newcrossdjApp: App {
         }
     }
 }
+
