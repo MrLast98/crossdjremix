@@ -156,7 +156,11 @@ struct DecksView: View {
                             .shadow(radius: 2)
                             .overlay(Circle()
                                         .scale(1/3)
-                                        .foregroundColor(Color.black))
+                                        .foregroundColor(Color.black)
+                            )
+                            .onTapGesture{
+                                GSAudio.sharedInstance.playSound(soundFileName: "Destra")
+                            }
                         Slider(
                             value: $decksConfig.RVolume,
                             in: 0...100,
